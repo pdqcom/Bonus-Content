@@ -32,6 +32,6 @@ ForEach($App in $Packages){
     }
     ###Nonremovable attribute does not exist before 1809, so if you are running this on an earlier build remove "-and $app.NonRemovable -eq $false" rt it will attempt to remove everything
     if($matched -eq $false -and $app.NonRemovable -eq $false){
-        Remove-AppxPackage -AllUsers -Package $app.PackageFullName -ErrorAction SilentlyContinue
+        Get-AppxPackage -AllUsers -Name $App.Name -PackageTypeFilter Bundle  | Remove-AppxPackage -AllUsers
     }
 }
