@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.1.96.0" MinimumVersion="3.1">
+  <Report>
+    <ReportDefinition name="Definition">
+      <RootFilter name="Filter">
+        <Comparison>All</Comparison>
+        <Filters type="list" />
+      </RootFilter>
+      <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+      <Columns type="list">
+        <Column>
+          <Column>Name</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+        </Column>
+        <Column>
+          <Column>CustomComputerItem1</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+          <CustomComputerItem name="ColumnDefinition">
+            <Name>PrimaryUser</Name>
+            <ItemType>String</ItemType>
+          </CustomComputerItem>
+        </Column>
+        <Column>
+          <Column>CustomComputerItem3</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+          <CustomComputerItem name="ColumnDefinition">
+            <Name>Department</Name>
+            <ItemType>String</ItemType>
+          </CustomComputerItem>
+        </Column>
+        <Column>
+          <Column>CustomComputerItem5</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+          <CustomComputerItem name="ColumnDefinition">
+            <Name>Location</Name>
+            <ItemType>String</ItemType>
+          </CustomComputerItem>
+        </Column>
+      </Columns>
+    </ReportDefinition>
+    <Created>2020-09-16T09:00:00.0000000-06:00</Created>
+    <Description></Description>
+    <IsNew value="false" />
+    <Modified>2020-09-16T09:00:54.0000000-06:00</Modified>
+    <Name>Hardware by Department</Name>
+    <Path>Reports\Audits\Hardware by Department</Path>
+    <ReportFolderId value="2" />
+    <TypeName>BasicReport</TypeName>
+    <ReportType>BasicReport</ReportType>
+  </Report>
+</AdminArsenal.Export>

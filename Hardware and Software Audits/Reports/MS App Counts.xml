@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.1.96.0" MinimumVersion="3.1">
+  <Report>
+    <ReportDefinition name="Definition">
+      <RootFilter name="Filter">
+        <Comparison>All</Comparison>
+        <Filters type="list">
+          <ValueFilter>
+            <Table>Application</Table>
+            <Column>Publisher</Column>
+            <Comparison>Contains</Comparison>
+            <Value>Microsoft</Value>
+          </ValueFilter>
+          <ValueFilter>
+            <Table>Application</Table>
+            <Column>Name</Column>
+            <Comparison>!Regex</Comparison>
+            <Value>^(Microsoft Visual C+|Microsoft OneDrive+|Local Administrator Password Solution+|Microsoft \.Net+|Microsoft ODBC+|Microsoft Deployment+|Microsoft ole+|PowerShell+|Update+|Windows+|Browser+)</Value>
+          </ValueFilter>
+        </Filters>
+      </RootFilter>
+      <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+      <Columns type="list">
+        <Column>
+          <Column>Name</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+        </Column>
+        <Column>
+          <Column>Name</Column>
+          <Summary></Summary>
+          <Table>Application</Table>
+          <Title></Title>
+        </Column>
+        <Column>
+          <Column>Version</Column>
+          <Summary></Summary>
+          <Table>Application</Table>
+          <Title></Title>
+        </Column>
+      </Columns>
+    </ReportDefinition>
+    <Created>2020-09-16T09:04:17.0000000-06:00</Created>
+    <Description></Description>
+    <IsNew value="false" />
+    <Modified>2020-09-16T09:14:13.0000000-06:00</Modified>
+    <Name>MS App Counts</Name>
+    <Path>Reports\Audits\MS App Counts</Path>
+    <ReportFolderId value="2" />
+    <TypeName>BasicReport</TypeName>
+    <ReportType>BasicReport</ReportType>
+  </Report>
+</AdminArsenal.Export>

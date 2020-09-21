@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.1.96.0" MinimumVersion="3.1">
+  <Report>
+    <ReportDefinition name="Definition">
+      <RootFilter name="Filter">
+        <Comparison>All</Comparison>
+        <Filters type="list" />
+      </RootFilter>
+      <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+      <Columns type="list">
+        <Column>
+          <Column>Name</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+        </Column>
+        <Column>
+          <Column>Description</Column>
+          <Summary></Summary>
+          <Table>WMIScanner_68_View</Table>
+          <Title></Title>
+          <TableTitle>WMI (MS-Keys)</TableTitle>
+        </Column>
+        <Column>
+          <Column>LicenseFamily</Column>
+          <Summary></Summary>
+          <Table>WMIScanner_68_View</Table>
+          <Title></Title>
+          <TableTitle>WMI (MS-Keys)</TableTitle>
+        </Column>
+        <Column>
+          <Column>PartialProductKey</Column>
+          <Summary></Summary>
+          <Table>WMIScanner_68_View</Table>
+          <Title></Title>
+          <TableTitle>WMI (MS-Keys)</TableTitle>
+        </Column>
+      </Columns>
+    </ReportDefinition>
+    <Created>2020-09-16T09:15:20.0000000-06:00</Created>
+    <Description></Description>
+    <IsNew value="false" />
+    <Modified>2020-09-17T07:48:19.0000000-06:00</Modified>
+    <Name>MS Keys</Name>
+    <Path>Reports\Audits\MS Keys</Path>
+    <ReportFolderId value="2" />
+    <TypeName>BasicReport</TypeName>
+    <ReportType>BasicReport</ReportType>
+  </Report>
+</AdminArsenal.Export>

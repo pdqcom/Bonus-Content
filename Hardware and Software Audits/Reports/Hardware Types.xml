@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.1.96.0" MinimumVersion="6.1">
+  <Report>
+    <ReportDefinition name="Definition">
+      <RootFilter name="Filter">
+        <Comparison>All</Comparison>
+        <Filters type="list" />
+      </RootFilter>
+      <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+      <Columns type="list">
+        <Column>
+          <Column>Name</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+        </Column>
+        <Column>
+          <Column>OS</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+        </Column>
+        <Column>
+          <Column>Manufacturer</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+        </Column>
+        <Column>
+          <Column>Memory</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+        </Column>
+      </Columns>
+    </ReportDefinition>
+    <Created>2020-09-16T08:57:20.0000000-06:00</Created>
+    <Description></Description>
+    <IsNew value="false" />
+    <Modified>2020-09-16T08:59:33.0000000-06:00</Modified>
+    <Name>Hardware Types</Name>
+    <Path>Reports\Audits\Hardware Types</Path>
+    <ReportFolderId value="2" />
+    <TypeName>BasicReport</TypeName>
+    <ReportType>BasicReport</ReportType>
+  </Report>
+</AdminArsenal.Export>

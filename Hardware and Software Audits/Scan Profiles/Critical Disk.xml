@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.1.96.0" MinimumVersion="14.0">
+  <ScanProfile>
+    <Collections type="list" />
+    <Scanners type="list">
+      <Scanner>
+        <TypeName>Disks</TypeName>
+        <SourceScannerId value="72" />
+      </Scanner>
+    </Scanners>
+    <Description></Description>
+    <ScanProfileId value="32" />
+    <Name>Critical Disk</Name>
+    <ScanAs>Admin</ScanAs>
+    <ScheduleTriggerSet name="ScheduleTriggers">
+      <Triggers type="list">
+        <ScheduleTrigger>
+          <TimeOfDay>20:00:00</TimeOfDay>
+          <Description></Description>
+          <EndDateTime>2020-09-24T00:00:00.0000000-06:00</EndDateTime>
+          <EndDateTimeIsEnabled value="false" />
+          <IsEnabled value="true" />
+          <StartDateTime>2020-09-17T00:00:00.0000000-06:00</StartDateTime>
+          <EnableTriggerStartTime>08:00:00</EnableTriggerStartTime>
+          <EnableTriggerEndTime>17:00:00</EnableTriggerEndTime>
+          <TriggerTimeFrameIsEnabled value="false" />
+          <TriggerType>Daily</TriggerType>
+        </ScheduleTrigger>
+      </Triggers>
+    </ScheduleTriggerSet>
+  </ScanProfile>
+</AdminArsenal.Export>
