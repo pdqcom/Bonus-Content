@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.1.96.0" MinimumVersion="14.0">
+  <ScanProfile>
+    <Collections type="list" />
+    <Scanners type="list">
+      <Scanner>
+        <WMIClassName>SoftwareLicensingProduct</WMIClassName>
+        <ModifiedDate>2020-09-16T07:04:56.0000000-06:00</ModifiedDate>
+        <UsePreferencesTimeout value="true" />
+        <Name>MS-Keys</Name>
+        <Namespace>CIMV2</Namespace>
+        <WQL>SELECT description, partialproductkey, licensefamily, productkeychannel FROM  SoftwareLicensingProduct Where productkeychannel is not null</WQL>
+        <Timeout value="90" />
+        <RowLimit value="2500" />
+        <TypeName>WMI</TypeName>
+        <SourceScannerId value="68" />
+      </Scanner>
+    </Scanners>
+    <Description></Description>
+    <ScanProfileId value="28" />
+    <Name>MS-Keys</Name>
+    <ScanAs>Admin</ScanAs>
+    <ScheduleTriggerSet name="ScheduleTriggers">
+      <Triggers type="list" />
+    </ScheduleTriggerSet>
+  </ScanProfile>
+</AdminArsenal.Export>

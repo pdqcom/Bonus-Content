@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.1.96.0" MinimumVersion="3.1">
+  <Report>
+    <ReportDefinition name="Definition">
+      <RootFilter name="Filter">
+        <Comparison>All</Comparison>
+        <Filters type="list">
+          <ValueFilter>
+            <Table>Computer</Table>
+            <Column>CustomComputerItem4</Column>
+            <Comparison>Between</Comparison>
+            <Value>2020-01-01T00:00:00.0000000-07:00</Value>
+            <Value2>2020-12-31T00:00:00.0000000-07:00</Value2>
+            <CustomComputerItem name="ColumnDefinition">
+              <Name>WarrantyExp</Name>
+              <ItemType>Date</ItemType>
+            </CustomComputerItem>
+          </ValueFilter>
+        </Filters>
+      </RootFilter>
+      <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+      <Columns type="list">
+        <Column>
+          <Column>Name</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+        </Column>
+        <Column>
+          <Column>CustomComputerItem3</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+          <CustomComputerItem name="ColumnDefinition">
+            <Name>Department</Name>
+            <ItemType>String</ItemType>
+          </CustomComputerItem>
+        </Column>
+        <Column>
+          <Column>CustomComputerItem4</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+          <CustomComputerItem name="ColumnDefinition">
+            <Name>WarrantyExp</Name>
+            <ItemType>Date</ItemType>
+          </CustomComputerItem>
+        </Column>
+      </Columns>
+    </ReportDefinition>
+    <Created>2020-09-16T09:01:04.0000000-06:00</Created>
+    <Description></Description>
+    <IsNew value="false" />
+    <Modified>2020-09-17T09:19:46.0000000-06:00</Modified>
+    <Name>2020 Expiring Warranties</Name>
+    <Path>Reports\Audits\2020 Expiring Warranties</Path>
+    <ReportFolderId value="2" />
+    <TypeName>BasicReport</TypeName>
+    <ReportType>BasicReport</ReportType>
+  </Report>
+</AdminArsenal.Export>

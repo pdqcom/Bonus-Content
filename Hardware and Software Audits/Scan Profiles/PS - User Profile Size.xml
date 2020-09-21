@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.1.96.0" MinimumVersion="19.0">
+  <ScanProfile>
+    <Collections type="list" />
+    <Scanners type="list">
+      <Scanner>
+        <ModifiedDate>2020-09-17T07:38:45.0000000-06:00</ModifiedDate>
+        <Name>User Profile Size</Name>
+        <UID>bb84738ffdf34ca9b52b67f637ce645e</UID>
+        <Script></Script>
+        <FileName>C:\PowerShell-Scanners\PowerShell Scanners\User Profile Size\User Profile Size.ps1</FileName>
+        <Parameters></Parameters>
+        <AdditionalFiles></AdditionalFiles>
+        <RowLimit value="100" />
+        <TypeName>PowerShell</TypeName>
+        <SourceScannerId value="70" />
+      </Scanner>
+    </Scanners>
+    <Description>Calculates the size of each user profile. May take a long time to run, and may not be 100% accurate.</Description>
+    <ScanProfileId value="30" />
+    <Name>PS - User Profile Size</Name>
+    <ScanAs>Admin</ScanAs>
+    <ScheduleTriggerSet name="ScheduleTriggers">
+      <Triggers type="list" />
+    </ScheduleTriggerSet>
+  </ScanProfile>
+</AdminArsenal.Export>
