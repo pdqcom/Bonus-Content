@@ -1,5 +1,5 @@
-#Application names
-$AppName = "*", "*"
+#Application names, If everything is only as an asterisk it will attempt to remove everything...be careful
+$AppName = "*Software Example*", "*Other Example*"
 
 #Publisher names
 $Publisher = "*", "*"
