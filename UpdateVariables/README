@@ -1,0 +1,12 @@
+Instructions
+1. Variable names must be consistent between the products
+2. Export the variable from the up to date product to anywhere, I have them in temp, but where ever you need them would be fine, just update the script
+3. Run ps1, it will grab the xml and use it to make your variables the same accross the board.
+
+
+Description
+This is a rough draft of importing variable from one PDQ product to another. The script as is assumes you exported from inventory and will be updating deploy, changing line 4 
+from pdqdeploy to pdqinventory will swithc that over.
+
+Author
+Jordan Hammond
