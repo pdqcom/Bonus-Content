@@ -7,7 +7,7 @@
  
  ###Get Number of Attempts until it will install anyway
  If(Test-Path $CountdownFile){
-    $Attempts = Get-Content $CountdownFile
+    $Attempts = (Get-Content $CountdownFile) - 1
  }
 
 ###If attempts equals zero, kick off update, if between 1-5 Alert User.
