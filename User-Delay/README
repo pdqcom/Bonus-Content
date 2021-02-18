@@ -1,0 +1,19 @@
+  
+Instructions for Deploy Package
+1. Import the xml into your PDQ Deploy
+2. Make sure the UserDelayInstall.ps1 file is in your repository, under a fodler called DelayInstaller
+3. You can change the params either in the script, or add the attributes in the main window
+    -Timeout - Length PopUp Window Remains Open
+    -Attempts - Number of Times User can delay the install
+    -CountdownFile - Location you would like the temporary file to be built
+
+Instructiosn for PowerShell Scanner
+1. Use PSDelayScanner.ps1 in a new scanner
+2. The Path Default is the samefor the scanner as it is for the Deploy package, if you change the path for one, make sure you update for both.
+
+Description
+PowerShell script for PDQ Deploy and Inventory to allow you to ask your end user if they are free for a software isntall. It allows them to select no up to a number of times that
+you define. It allows you to set it and forget your software installs, but still make sure you are not stepping on the toes of your end users.
+
+Author
+Jordan Hammond
