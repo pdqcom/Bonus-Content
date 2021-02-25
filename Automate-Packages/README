@@ -1,0 +1,2 @@
+This is something that won't run out of the box, it is a Few examples to show how you can autodownload packages that are not in the library and update your variable in 
+PDQ Deploy and PDQ Inventory. This will require customization for any software you decide to automate.
