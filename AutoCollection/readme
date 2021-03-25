@@ -1,1 +1,3 @@
+Download both files and have them in the same folder. After you run the powershell it will create a new xml that you can import into inventory for your new collection.
 
+Currently the xml save to C:\Temp and is hard coded. It is terrible and I feel shame, I needed to get this up and will correct that part shortly.
