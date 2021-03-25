@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.3.9.0" MinimumVersion="4.0">
+  <Collection>
+    <ReportDefinition name="Definition">
+      <RootFilter name="Filter">
+        <Comparison>All</Comparison>
+        <Filters type="list">
+          <ValueFilter>
+            <Table>Application</Table>
+            <Column>Name</Column>
+            <Comparison>Equals</Comparison>
+            <Value>@(AppNameApp)</Value>
+          </ValueFilter>
+        </Filters>
+      </RootFilter>
+      <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+      <Columns type="list">
+        <Column>
+          <Column>ComputerId</Column>
+          <Summary></Summary>
+          <Table>Computer</Table>
+          <Title></Title>
+        </Column>
+      </Columns>
+    </ReportDefinition>
+    <IsDrilldown value="false" />
+    <ImportedPath></ImportedPath>
+    <TypeName>DynamicCollection</TypeName>
+    <Created>2018-08-16T07:00:01.0000000-06:00</Created>
+    <Description>Systems with @(AppNameApp)</Description>
+    <Error></Error>
+    <Id value="1707" />
+    <LibraryCollectionId value="3460" />
+    <IsEnabled value="true" />
+    <Modified>2021-03-08T08:56:30.0000000-07:00</Modified>
+    <Name>Name of your Application</Name>
+    <ParentId value="null" />
+    <Path>Name of your Application</Path>
+    <Type>DynamicCollection</Type>
+    <CustomVariables type="list">
+      <CustomVariable>
+        <Name>AppNameApp</Name>
+        <Value>Name of your Application</Value>
+      </CustomVariable>
+    </CustomVariables>
+    <Children type="list">
+      <Collection>
+        <ReportDefinition name="Definition">
+          <RootFilter name="Filter">
+            <Comparison>All</Comparison>
+            <Filters type="list">
+              <ValueFilter>
+                <Table>Application</Table>
+                <Column>Name</Column>
+                <Comparison>Equals</Comparison>
+                <Value>@(AppNameApp)</Value>
+              </ValueFilter>
+              <ValueFilter>
+                <Table>Application</Table>
+                <Column>Version</Column>
+                <Comparison>!VersionLowerThan</Comparison>
+                <Value>@(AppVerApp)</Value>
+              </ValueFilter>
+            </Filters>
+          </RootFilter>
+          <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+          <Columns type="list">
+            <Column>
+              <Column>ComputerId</Column>
+              <Summary></Summary>
+              <Table>Computer</Table>
+              <Title></Title>
+            </Column>
+          </Columns>
+        </ReportDefinition>
+        <IsDrilldown value="false" />
+        <ImportedPath></ImportedPath>
+        <TypeName>DynamicCollection</TypeName>
+        <Created>2018-08-16T07:04:40.0000000-06:00</Created>
+        <Description>Systems with @(AppNameApp) (@(AppVerApp))</Description>
+        <Error></Error>
+        <Id value="1708" />
+        <LibraryCollectionId value="3461" />
+        <IsEnabled value="true" />
+        <Modified>2021-03-08T08:58:31.0000000-07:00</Modified>
+        <Name>Name of your Application (Latest)</Name>
+        <ParentId value="1707" />
+        <Path>Name of your Application\Name of your Application (Latest)</Path>
+        <Type>DynamicCollection</Type>
+        <CustomVariables type="list">
+          <CustomVariable>
+            <Name>AppNameApp</Name>
+            <Value>Name of your Application</Value>
+          </CustomVariable>
+          <CustomVariable>
+            <Name>AppVerApp</Name>
+            <Value>Version of your Application</Value>
+          </CustomVariable>
+        </CustomVariables>
+        <Children type="list" />
+      </Collection>
+      <Collection>
+        <ReportDefinition name="Definition">
+          <RootFilter name="Filter">
+            <Comparison>NotAny</Comparison>
+            <Filters type="list">
+              <ValueFilter>
+                <Table>Application</Table>
+                <Column>Name</Column>
+                <Comparison>Equals</Comparison>
+                <Value>@(AppNameApp)</Value>
+              </ValueFilter>
+              <ValueFilter>
+                <Table>Computer</Table>
+                <Column>NeverScanned</Column>
+                <Comparison>IsTrue</Comparison>
+              </ValueFilter>
+            </Filters>
+          </RootFilter>
+          <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+          <Columns type="list">
+            <Column>
+              <Column>ComputerId</Column>
+              <Summary></Summary>
+              <Table>Computer</Table>
+              <Title></Title>
+            </Column>
+          </Columns>
+        </ReportDefinition>
+        <IsDrilldown value="false" />
+        <ImportedPath></ImportedPath>
+        <TypeName>DynamicCollection</TypeName>
+        <Created>2018-08-16T07:11:01.0000000-06:00</Created>
+        <Description>Systems missing @(AppNameApp)</Description>
+        <Error></Error>
+        <Id value="1709" />
+        <LibraryCollectionId value="3462" />
+        <IsEnabled value="true" />
+        <Modified>2021-03-08T08:59:04.0000000-07:00</Modified>
+        <Name>Name of your Application (Not Installed)</Name>
+        <ParentId value="1707" />
+        <Path>Name of your Application\Name of your Application (Not Installed)</Path>
+        <Type>DynamicCollection</Type>
+        <CustomVariables type="list">
+          <CustomVariable>
+            <Name>AppNameApp</Name>
+            <Value>Name of your Application</Value>
+          </CustomVariable>
+        </CustomVariables>
+        <Children type="list">
+          <Collection>
+            <ReportDefinition name="Definition">
+              <RootFilter name="Filter">
+                <Comparison>All</Comparison>
+                <Filters type="list">
+                  <GroupFilter>
+                    <Comparison>NotAll</Comparison>
+                    <Filters type="list">
+                      <ValueFilter>
+                        <Table>Application</Table>
+                        <Column>Name</Column>
+                        <Comparison>Equals</Comparison>
+                        <Value>@(AppNameApp)</Value>
+                      </ValueFilter>
+                    </Filters>
+                  </GroupFilter>
+                  <GroupFilter>
+                    <Comparison>NotAny</Comparison>
+                    <Filters type="list">
+                      <ValueFilter>
+                        <Table>Computer</Table>
+                        <Column>NeverScanned</Column>
+                        <Comparison>IsTrue</Comparison>
+                      </ValueFilter>
+                      <ValueFilter>
+                        <Table>Computer</Table>
+                        <Column>OSName</Column>
+                        <Comparison>Contains</Comparison>
+                        <Value>server</Value>
+                      </ValueFilter>
+                    </Filters>
+                  </GroupFilter>
+                </Filters>
+              </RootFilter>
+              <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+              <Columns type="list">
+                <Column>
+                  <Column>ComputerId</Column>
+                  <Summary></Summary>
+                  <Table>Computer</Table>
+                  <Title></Title>
+                </Column>
+              </Columns>
+            </ReportDefinition>
+            <IsDrilldown value="false" />
+            <ImportedPath></ImportedPath>
+            <TypeName>DynamicCollection</TypeName>
+            <Created>2018-08-16T07:11:15.0000000-06:00</Created>
+            <Description>Workstations missing @(AppNameApp)</Description>
+            <Error></Error>
+            <Id value="1710" />
+            <LibraryCollectionId value="3463" />
+            <IsEnabled value="true" />
+            <Modified>2021-03-08T08:59:41.0000000-07:00</Modified>
+            <Name>Name of your Application (Not Installed) (Workstations)</Name>
+            <ParentId value="1709" />
+            <Path>Name of your Application\Name of your Application (Not Installed)\Name of your Application (Not Installed) (Workstations)</Path>
+            <Type>DynamicCollection</Type>
+            <CustomVariables type="list">
+              <CustomVariable>
+                <Name>AppNameApp</Name>
+                <Value>Name of your Application</Value>
+              </CustomVariable>
+            </CustomVariables>
+            <Children type="list" />
+          </Collection>
+        </Children>
+      </Collection>
+      <Collection>
+        <ReportDefinition name="Definition">
+          <RootFilter name="Filter">
+            <Comparison>All</Comparison>
+            <Filters type="list">
+              <ValueFilter>
+                <Table>Application</Table>
+                <Column>Name</Column>
+                <Comparison>Equals</Comparison>
+                <Value>@(AppNameApp)</Value>
+              </ValueFilter>
+              <ValueFilter>
+                <Table>Application</Table>
+                <Column>Version</Column>
+                <Comparison>VersionLowerThan</Comparison>
+                <Value>@(AppVerApp)</Value>
+              </ValueFilter>
+            </Filters>
+          </RootFilter>
+          <ReportDefinitionTypeName>BasicReportDefinition</ReportDefinitionTypeName>
+          <Columns type="list">
+            <Column>
+              <Column>ComputerId</Column>
+              <Summary></Summary>
+              <Table>Computer</Table>
+              <Title></Title>
+            </Column>
+          </Columns>
+        </ReportDefinition>
+        <IsDrilldown value="false" />
+        <ImportedPath></ImportedPath>
+        <TypeName>DynamicCollection</TypeName>
+        <Created>2018-08-16T07:11:31.0000000-06:00</Created>
+        <Description>Systems with an older version of @(AppNameApp)  (lower than @(AppVerApp))</Description>
+        <Error></Error>
+        <Id value="1711" />
+        <LibraryCollectionId value="3464" />
+        <IsEnabled value="true" />
+        <Modified>2021-03-08T09:00:56.0000000-07:00</Modified>
+        <Name>Name of your Application (Old)</Name>
+        <ParentId value="1707" />
+        <Path>Name of your Application\Name of your Application (Old)</Path>
+        <Type>DynamicCollection</Type>
+        <CustomVariables type="list">
+          <CustomVariable>
+            <Name>AppNameApp</Name>
+            <Value>Name of your Application</Value>
+          </CustomVariable>
+          <CustomVariable>
+            <Name>AppVerApp</Name>
+            <Value>Version of your Application</Value>
+          </CustomVariable>
+        </CustomVariables>
+        <Children type="list" />
+      </Collection>
+    </Children>
+  </Collection>
+</AdminArsenal.Export>
