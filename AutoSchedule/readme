@@ -1,0 +1,3 @@
+Both of these folders need to be in the same location. Run the PowerShell and answer the questions and it will build a new xml that you can import into PDQ Inventory.
+
+It currently is hardcoded to send it to C:\temp. This is terrible and I will fix it, but for now I was told to get it up ASAP.
