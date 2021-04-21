@@ -1,16 +1,22 @@
-﻿###Name of the Application Variable
-$AppNameVar = Read-Host "Type in name of Variable"
-###Application Name
-$AppNameValue = Read-Host "Application Name?"
-###Name of the Application Version Variable
-$AppVerVar = Read-Host "Version Variable Name?"
-###Application Version
-$AppVerValue = Read-Host "Application Version"
+ ###Set Parameters
+ [CmdletBinding(PositionalBinding=$false)]
+ param(
+    [Parameter(Mandatory=$true)][string]$VariableName,
+    [Parameter(Mandatory=$true)][string]$ApplicationName,
+    [Parameter(Mandatory=$true)][string]$VariableVersionName,
+    [Parameter(Mandatory=$true)][string]$ApplicationVersion,
+    [Switch]$VersionInTitle = $false
+ )
 
-###Create Filename
-$FileName = $AppNameValue + ".xml"
+ 
+ ###Create Filename
+$FileName = $ApplicationName + ".xml"
 ###Get Exsiting XML and replace placeholder information with params
-$file = Get-Content -Path "$PSScriptRoot\Name of your Application.xml" | ForEach-Object{$_.replace("AppNameApp",$AppNameVar).Replace("AppVerApp","$AppVerVar").replace("Name of your Application","$AppNameValue").replace("Version of your Application","$AppVerValue")}
+$file = Get-Content -Path "$PSScriptRoot\Name of your Application.xml" | ForEach-Object{$_.replace("AppNameApp",$VariableName).Replace("AppVerApp","$VariableVersionName").replace("Name of your Application","$ApplicationName").replace("Version of your Application","$ApplicationVersion")}
+###If Application Name Contains version
+If($VersionInTitle){
+   $file = $file.replace("<Comparison>Equals</Comparison>","<Comparison>StartsWith</Comparison>")
+}
 ###Export new xml
 $FinalExport = [xml]$file
 $FinalExport.'AdminArsenal.Export'.InnerXml | Out-File -FilePath "C:\temp\$FileName"
