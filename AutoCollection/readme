@@ -1,15 +1,15 @@
 Download both files and make sure they are in the Same Location. Running this script will create a new XML in the same location that you can Import into PDQ Inventory to create a new collection for any software you use in your envirnment. 
 You have to Supply 4 pieces of information to create this
 
-**$VariableName** - This creates a variable for your application name. This makes it so you can update every collection this builts from a single entry. Example: 6zipapp
+$VariableName - This creates a variable for your application name. This makes it so you can update every collection this builts from a single entry. Example: 6zipapp
 
-**$VariableVersionName** - This creates a variable for your Application Version. It allows you to update the collection for each new version of the software from a single entry. Example: 6zipappver
+$VariableVersionName - This creates a variable for your Application Version. It allows you to update the collection for each new version of the software from a single entry. Example: 6zipappver
 
-**$ApplicationName** - This is the name of the Application you are creating the collection for. It needs to match how it shows in Application Manager. Example: 6-Zip 
+$ApplicationName - This is the name of the Application you are creating the collection for. It needs to match how it shows in Application Manager. Example: 6-Zip 
 
-**$ApplicationVersion** - The Latest version ofthe software. Example: 86.75
+$ApplicationVersion - The Latest version ofthe software. Example: 86.75
 
-**$VersionInTitle** - If the application was built by monsters that put the version number in the name you need to use this param.
+$VersionInTitle - If the application was built by monsters that put the version number in the name you need to use this param.
 
 
 .\AutoCollection.ps1 -VariableName 6zipapp -ApplicationName 6-Zip -VariableVersionName 6zipappver -ApplicationVersion 32.21 -VersionInTitle
