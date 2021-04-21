@@ -19,4 +19,4 @@ If($VersionInTitle){
 }
 ###Export new xml
 $FinalExport = [xml]$file
-$FinalExport.'AdminArsenal.Export'.InnerXml | Out-File -FilePath "C:\temp\$FileName"
+$FinalExport.'AdminArsenal.Export'.InnerXml | Out-File -FilePath "$PSScriptRoot\$FileName"
