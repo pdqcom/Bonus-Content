@@ -1,0 +1,7 @@
+This is a first attempt at building something that could work somewhat like an active resource monitor. We have plans for this to try and make it better, but I think this is a decent start.
+
+Grab the xml and the ps1 file. Import the xml into inventory as a scanner. You will need to change the file location of the scanner to point it at the ps1 file.
+Unless you have a fileshare called \\SuperSecretFilShare\youshouldsavethescript. If you do just copy the script there and you are good to go.
+
+This will also create a variable in Inventory for services you want to look for. I think the default would be pdqdeploy and spooler. Those are not great choices, maybe the spooler
+is good on account of all that printnightmare crap.
