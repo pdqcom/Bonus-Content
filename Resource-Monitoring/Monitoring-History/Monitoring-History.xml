@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdminArsenal.Export Code="PDQInventory" Name="PDQ Inventory" Version="19.3.41.0" MinimumVersion="19.0">
+  <ScanProfile>
+    <Collections type="list" />
+    <Scanners type="list">
+      <Scanner>
+        <ModifiedDate>2021-07-29T07:01:02.0000000-06:00</ModifiedDate>
+        <Name>Monitoring No History</Name>
+        <UID>4b7660665c7d4317ba40cf31d649c283</UID>
+        <Script></Script>
+        <FileName>\\SuperSecretFilShare\youshouldsavethescript\Monitoring_No_History.ps1</FileName>
+        <Parameters>-Services @(Services) -Processes @(Processes) -Ports @(Ports)</Parameters>
+        <AdditionalFiles></AdditionalFiles>
+        <RowLimit value="100" />
+        <TypeName>PowerShell</TypeName>
+        <SourceScannerId value="43" />
+        <CustomVariables type="list">
+          <CustomVariable>
+            <Name>Services</Name>
+            <Value>"pdqdeploy","spooler"</Value>
+          </CustomVariable>
+          <CustomVariable>
+            <Name>Processes</Name>
+            <Value>notepad,powershell</Value>
+          </CustomVariable>
+          <CustomVariable>
+            <Name>Ports</Name>
+            <Value>80,7680</Value>
+          </CustomVariable>
+        </CustomVariables>
+      </Scanner>
+      <Scanner>
+        <ModifiedDate>2021-07-29T07:01:53.0000000-06:00</ModifiedDate>
+        <Name>Monitoring</Name>
+        <UID>e10249d00bcf40888e08f6e4dd7616d2</UID>
+        <Script></Script>
+        <FileName>\\SuperSecretFilShare\youshouldsavethescript\Monitoring.ps1</FileName>
+        <Parameters>-Services @(Services) -Processes @(Processes) -Ports @(Ports)</Parameters>
+        <AdditionalFiles></AdditionalFiles>
+        <RowLimit value="100" />
+        <TypeName>PowerShell</TypeName>
+        <SourceScannerId value="47" />
+        <CustomVariables type="list">
+          <CustomVariable>
+            <Name>Services</Name>
+            <Value>"pdqdeploy","spooler"</Value>
+          </CustomVariable>
+          <CustomVariable>
+            <Name>Processes</Name>
+            <Value>notepad,powershell</Value>
+          </CustomVariable>
+          <CustomVariable>
+            <Name>Ports</Name>
+            <Value>80,7680</Value>
+          </CustomVariable>
+        </CustomVariables>
+      </Scanner>
+    </Scanners>
+    <Description></Description>
+    <ScanProfileId value="19" />
+    <Name>Monitoring</Name>
+    <ScanAs>Admin</ScanAs>
+    <ScheduleTriggerSet name="ScheduleTriggers">
+      <Triggers type="list" />
+    </ScheduleTriggerSet>
+  </ScanProfile>
+</AdminArsenal.Export>
