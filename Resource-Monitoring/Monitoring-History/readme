@@ -3,6 +3,6 @@ This is the second attempt at building something that could work somewhat like a
 Grab the xml and the ps1 files. Import the xml into inventory as a scanner. You will need to change the file location of both scanners to point it at the ps1 files.
 Unless you have a fileshare called \\SuperSecretFilShare\youshouldsavethescript. If you do just copy the script there and you are good to go.
 
-This will also create a variable in Inventory for services,processes,ports,history,timeframe, and filepath. 
+This will also create a variables in Inventory for services,processes,ports,history,timeframe, and filepath. 
 
 Services is the same as version one. Process will let you check for specific process you list. Ports are the ports you want to check. History is how many scans you want to keep. timeframe lets you define how far back in minutes you want to check for log on events, the goal being to have it not look back further than your last scan. Filepath is where you want to store the history on the machine.
