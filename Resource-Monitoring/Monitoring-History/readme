@@ -1,5 +1,3 @@
-readme
-
 This is the second attempt at building something that could work somewhat like an active resource monitor. We added the ability to keep a short history. You can define how many to keep with the -history argument
 
 Grab the xml and the ps1 files. Import the xml into inventory as a scanner. You will need to change the file location of both scanners to point it at the ps1 files.
