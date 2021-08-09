@@ -4,7 +4,7 @@ In the webcast we covered how to find the PsScanID, you can either look it up wi
 
 Params:
 
-DBPath - This is where you Inventory database is located.
+DBPath - This is where your Inventory database is located.
 
 Server - The irl of your influx location. If you did not change any defaults it is "http://localhost:8086"
 
