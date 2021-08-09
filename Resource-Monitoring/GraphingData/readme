@@ -1,0 +1,17 @@
+This is the script from the last Monitoring Webcast https://www.youtube.com/watch?v=Ec9Fy6CpjTw. This script assumes your influx and PDQ are on the same server. If it needs to run against a remote machine line 18 weill need to be modified slightly to rung it against a remote machine.
+
+In the webcast we covered how to find the PsScanID, you can either look it up with a dbbrowser like dbbrowser. Or you can export the scanner you are using and the ID, in the xml it will look lik <UID>4b7660665c7d4317ba40cf31d649c283</UID>.
+
+Params:
+
+DBPath - This is where you Inventory database is located.
+
+Server - The irl of your influx location. If you did not change any defaults it is "http://localhost:8086"
+
+Token - Influx token for the user. It is Located in Data > Tokens
+
+Originisation - Name of your org in Influx DB
+
+Bucket - Bucket you want to import the data into
+
+PsScanID - UID of PowerShell scanner you are querying.
