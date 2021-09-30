@@ -1,0 +1,8 @@
+GetApprovedProc.ps1 Will run Invoke Wev-REquest from the three webpages my microsoft, and create a CSV of every approved processor. You may only need to run this the one time,
+but the list could change at any point, so updating the csv each time you run might not be a terrible idea. I did not jsut include this at the top of the main script because if
+the computer has never run the initial set up for IE it will fail. There is a flag for the -usebasicparsing does bypass this, but I am pulling the table from $REsult.ParsedHtml
+which would be blank with that flag. If you are confident all of your users have run IE for the initial you could add it to the top of the script and just change line 24 from Export
+to assigning it to the variable $final
+
+Win11Compatablilty.ps1 is set to run as a PowerShell scanner in inventory, include the csv from the first script as an additional file and it will check:
+Processor, TPM, DirectX, MDDM, and UEFI compatability. If all 5 pass and you have 4 gigs of memory and 64 gigs of free HD space that machine is all set to upgrade.
