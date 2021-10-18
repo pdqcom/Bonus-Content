@@ -20,4 +20,5 @@ foreach($Address in $URI){
         }
     }
 }
-$final = $table | ConvertFrom-Csv -Delimiter "," | Export-csv C:\temp\proc.csv -NoTypeInformation
+
+$final = $table | ConvertFrom-Csv -Delimiter "," | Export-csv $home\proc.csv -NoTypeInformation
