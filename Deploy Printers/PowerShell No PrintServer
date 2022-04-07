@@ -1,0 +1,7 @@
+pnputil.exe /a "\\FileShare\Printer\*.inf"
+#I Did not mention thatyou can not use any Driver name, but if you open the .inf file you can find the driver name that will work
+Add-PrinterDriver -Name "Printer Driver Name from inf file"
+Add-PrinterPort -Name "Ports McGee" -PrinterHostAddress "Ip Address"
+Add-Printer -DriverName "Printer Driver Name from inf file" -Name "Printatron" -PortName "Ports McGee"
+
+Get-CimInstance -Class Win32_Printer -Filter "Name='Printatron'" | Invoke-CimMethod -MethodName SetDefaultPrinter
