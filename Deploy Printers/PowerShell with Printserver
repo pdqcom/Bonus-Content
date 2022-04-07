@@ -1,0 +1,2 @@
+Add-Printer -ConnectionName "\\Server\Printer Name"
+Get-CimInstance -ClassName Win32_printer | Where-Object {$_.Name -eq "\\Server\Printer Name"} | Invoke-CimMethod -MethodName SetDefaultPrinter
