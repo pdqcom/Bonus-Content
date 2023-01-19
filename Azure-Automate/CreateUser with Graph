@@ -1,0 +1,20 @@
+#Unlock the vault. This is a secure way to use secrets through automation. To follow all the steps to set this up Andrew Pla wrote a blog https://www.pdq.com/blog/how-to-manage-powershell-secrets-with-secretsmanagement/
+$passwordPath = Join-Path (Split-Path $profile) SecretStore.vault.credential
+$pass = Import-CliXml $passwordPath
+Unlock-SecretVault -Name admin -Password $pass
+
+#Connect to Graph with the Cert
+Connect-MgGraph -TenantId $(Get-Secret tenantID -AsPlainText) -ClientId $(Get-Secret AppID -AsPlainText) -CertificateThumbprint $(Get-Secret thumbprint -AsPlainText)
+
+#Get New User Info, In this example I used an onboarding system that requires an export. If yours allows you to instead just query an API you would do that in this section
+$file = Import-Csv "\\fileshare\newuser.csv"
+$upn = [string]$file.mailnickname + "@nerdblah.com"
+#Build Password, I have a deffault password is my secret vault to avoid having it in clear text
+$PasswordProfile = @{
+  Password = $(Get-Secret DefaultPass -AsPlainText)
+}
+#Create the new user. This cmdlet has 124 attributes, you can automate a lot of new user creation
+New-MgUser -DisplayName $file.Display -MailNickname $file.mailnickname -AccountEnabled -Department $file.Department -UsageLocation $file.Location -UserPrincipalName $upn -PasswordProfile $PasswordProfile
+
+#disconnect graph section
+Disconnect-MgGraph | Out-Null
