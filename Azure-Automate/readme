@@ -11,3 +11,7 @@ The connection string to not need to use 2fa will require
 3. Cert Thumbprint you set up for authentication
 
 I put each one of those pieces of information into my secrets vault
+
+
+This is not a do all for user creation, this is just a test case of being able to automate the process even when 2fa is in place. You can do so much more with graph when
+creating user. Feel free to add to this and make your automation masterpiece.
