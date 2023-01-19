@@ -1,0 +1,13 @@
+This is some of the code that I used for being able to automate new user creation in Azure even if 2fa is on.
+
+Creating the ap registration is done on the azure side, I have a video covering how I did that part, this is mostly the PowerShell that I used
+
+This PowerShell uses a lot of the secrets module, for more information on setting that up see that fantastic blog written by Andrewe Pla
+https://www.pdq.com/blog/how-to-manage-powershell-secrets-with-secretsmanagement/
+
+The connection string to not need to use 2fa will require 
+1. tenantID you are connecting to
+2. The AppID from app registration in Azure
+3. Cert Thumbprint you set up for authentication
+
+I put each one of those pieces of information into my secrets vault
