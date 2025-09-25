@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" transform-origin="50% 50%">
+  <symbol id="turtle-symbol" viewBox="0 0 42 36.3730669589464" transform-origin="50% 50%">
+    <path id="turtle-path" d="m 42 0  l -21 36.3730669589464  l -21 -36.3730669589464  l 42 -0" stroke="currentcolor" stroke-width="0.25%" fill="transparent" class="foreground-stroke" transform-origin="50% 50%">
+    </path>
+  </symbol>
+  <use href="#turtle-symbol" width="100%" height="100%" transform-origin="50% 50%" />
+</svg>
