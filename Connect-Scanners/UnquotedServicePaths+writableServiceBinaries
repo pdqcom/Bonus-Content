@@ -1,0 +1,104 @@
+# Unquoted Service Paths + Writable Service Binaries - PDQ Connect PowerShell Scanner
+# One row per vulnerable service. No rows = machine is clean.
+
+$nonPrivilegedSids = @(
+    'S-1-1-0',      # Everyone
+    'S-1-5-11',     # Authenticated Users
+    'S-1-5-32-545', # Users
+    'S-1-5-32-546'  # Guests
+)
+
+$writeRightsMask = [int]([System.Security.AccessControl.FileSystemRights]::WriteData -bor
+                          [System.Security.AccessControl.FileSystemRights]::AppendData -bor
+                          [System.Security.AccessControl.FileSystemRights]::Write -bor
+                          [System.Security.AccessControl.FileSystemRights]::Modify -bor
+                          [System.Security.AccessControl.FileSystemRights]::FullControl)
+
+$services = Get-CimInstance -ClassName Win32_Service -ErrorAction SilentlyContinue
+
+foreach ($svc in $services) {
+    $pathName = $svc.PathName
+    if ([string]::IsNullOrWhiteSpace($pathName)) { continue }
+
+    $isUnquoted = $false
+    $trimmed = $pathName.Trim()
+
+    if (-not $trimmed.StartsWith('"')) {
+        $execDir = Split-Path -Path $pathName -Parent -ErrorAction SilentlyContinue
+        if ($execDir -and $execDir.Contains(' ')) {
+            $isUnquoted = $true
+        }
+    }
+
+    $binaryPath = $null
+    if ($trimmed.StartsWith('"')) {
+        $closingQuote = $trimmed.IndexOf('"', 1)
+        if ($closingQuote -gt 1) {
+            $binaryPath = $trimmed.Substring(1, $closingQuote - 1)
+        }
+    } else {
+        if ($trimmed -match '^(.+?\.exe)') {
+            $binaryPath = $matches[1]
+        } else {
+            $firstSpace = $trimmed.IndexOf(' ')
+            $binaryPath = if ($firstSpace -gt 0) { $trimmed.Substring(0, $firstSpace) } else { $trimmed }
+        }
+    }
+
+    $binaryWritable = $false
+    $parentDirWritable = $false
+    $writableBy = @()
+
+    if ($binaryPath -and (Test-Path -LiteralPath $binaryPath -ErrorAction SilentlyContinue)) {
+        try {
+            $acl = Get-Acl -LiteralPath $binaryPath -ErrorAction Stop
+            foreach ($rule in $acl.Access) {
+                if ($rule.AccessControlType -ne 'Allow') { continue }
+                $sid = try { $rule.IdentityReference.Translate([System.Security.Principal.SecurityIdentifier]).Value } catch { $null }
+                if (-not $sid) { continue }
+
+                if ($nonPrivilegedSids -contains $sid) {
+                    $rights = [int]$rule.FileSystemRights
+                    if ($rights -band $writeRightsMask) {
+                        $binaryWritable = $true
+                        $writableBy += $rule.IdentityReference.Value
+                    }
+                }
+            }
+
+            $parent = Split-Path -Path $binaryPath -Parent
+            if ($parent -and (Test-Path -LiteralPath $parent)) {
+                $parentAcl = Get-Acl -LiteralPath $parent -ErrorAction Stop
+                foreach ($rule in $parentAcl.Access) {
+                    if ($rule.AccessControlType -ne 'Allow') { continue }
+                    $sid = try { $rule.IdentityReference.Translate([System.Security.Principal.SecurityIdentifier]).Value } catch { $null }
+                    if (-not $sid) { continue }
+
+                    if ($nonPrivilegedSids -contains $sid) {
+                        $rights = [int]$rule.FileSystemRights
+                        if ($rights -band $writeRightsMask) {
+                            $parentDirWritable = $true
+                            $writableBy += "$($rule.IdentityReference.Value) (dir)"
+                        }
+                    }
+                }
+            }
+        } catch { }
+    }
+
+    if ($isUnquoted -or $binaryWritable -or $parentDirWritable) {
+        [PSCustomObject]@{
+            ServiceName       = $svc.Name
+            DisplayName       = $svc.DisplayName
+            StartMode         = $svc.StartMode
+            StartName         = $svc.StartName
+            RawPathName       = $pathName
+            BinaryPath        = if ($binaryPath) { $binaryPath } else { 'N/A' }
+            UnquotedWithSpaces = [bool]$isUnquoted
+            BinaryWritable    = [bool]$binaryWritable
+            ParentDirWritable = [bool]$parentDirWritable
+            WritableBy        = ($writableBy | Select-Object -Unique) -join '; '
+            Severity          = if ($binaryWritable -or $parentDirWritable) { 'High' } elseif ($isUnquoted) { 'Medium' } else { 'Low' }
+        }
+    }
+}
